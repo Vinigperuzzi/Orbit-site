@@ -3,127 +3,289 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orbit IA - Inteligência Brasileira</title>
+  <title>Boto IA - Inteligência Artificial Soberana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .parallax {
-      background-image: url('./image.png');
-      background-attachment: fixed;
-      background-position: center;
-      background-size: cover;
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0B0B0B',
+            'bg-secondary': '#1a1a1a',
+            'bg-tertiary': '#2a2a2a',
+            'neon': '#F5FF94',
+            'neon-dark': '#E5EF84',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon': '0 0 20px rgba(245, 255, 148, 0.4)',
+            'neon-strong': '0 0 30px rgba(245, 255, 148, 0.6)',
+          },
+          animation: {
+            'pulse-neon': 'pulse-neon 2s ease-in-out infinite',
+          },
+          keyframes: {
+            'pulse-neon': {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(245, 255, 148, 0.4)' },
+              '50%': { boxShadow: '0 0 30px rgba(245, 255, 148, 0.6)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer components {
+      /* Parallax Background */
+      .parallax-bg {
+        background-image: url('./docs/logoBoto.jpeg');
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+      }
+
+      /* Hero Parallax Secondary */
+      .hero-parallax-secondary {
+        background-image: linear-gradient(rgba(11,11,11,0.85), rgba(26,26,26,0.75)), url('./image.png');
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+      }
+
+      /* Orbital Background Effects */
+      .orbital-bg {
+        @apply relative overflow-hidden;
+      }
+
+      .orbital-bg::before {
+        content: '';
+        @apply absolute w-[800px] h-[800px] rounded-full -top-[400px] -right-[400px] z-0;
+        background: radial-gradient(circle, rgba(245, 255, 148, 0.1) 0%, transparent 70%);
+      }
+
+      .orbital-bg::after {
+        content: '';
+        @apply absolute w-[600px] h-[600px] rounded-full -bottom-[300px] -left-[300px] z-0;
+        background: radial-gradient(circle, rgba(245, 255, 148, 0.05) 0%, transparent 70%);
+      }
+
+      /* Responsive orbital effects */
+      @media (max-width: 768px) {
+        .orbital-bg::before {
+          @apply w-[500px] h-[500px] -top-[250px] -right-[250px];
+        }
+        .orbital-bg::after {
+          @apply w-[400px] h-[400px] -bottom-[200px] -left-[200px];
+        }
+      }
+
+      /* Neon Text Shadow */
+      .neon-text-shadow {
+        text-shadow: 0 0 10px rgba(245, 255, 148, 0.6);
+      }
+
+      /* Hero Main Gradient */
+      .hero-main-gradient {
+        background-image: linear-gradient(rgba(11,11,11,0.95), rgba(26,26,26,0.90), rgba(11,11,11,0.95));
+      }
     }
   </style>
 </head>
-<body class="bg-[#0C0F12] text-gray-200 font-sans">
+<body class="bg-bg-primary text-white font-sans">
 
   <!-- HERO -->
-  <header class="h-screen parallax flex flex-col items-center justify-center text-center px-4 bg-gradient-to-r from-[#256D85]/80 to-yellow-600/40">
-    <h1 class="text-4xl md:text-6xl font-bold">Orbit IA</h1>
-    <p class="mt-4 text-lg md:text-2xl max-w-2xl">Independência tecnológica com privacidade e soberania como pilares.</p>
+  <header class="h-screen parallax-bg flex flex-col items-center justify-center text-center px-4 hero-main-gradient orbital-bg">
+    <div class="relative z-10">
+      <h1 class="text-5xl md:text-7xl font-bold text-neon neon-text-shadow">Boto IA</h1>
+      <p class="mt-6 text-xl md:text-3xl max-w-3xl font-light">Independência tecnológica com privacidade e soberania como pilares.</p>
+      <p class="mt-4 text-lg md:text-xl max-w-2xl text-gray-300">Sua IA, seus dados, seu hardware, sob o seu controle.</p>
+    </div>
   </header>
 
+  <!-- CONQUISTA Z2O -->
+  <section class="py-16 px-6 border-t-4 border-neon orbital-bg">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="inline-block px-6 py-3 rounded-full mb-4 bg-neon text-bg-primary font-bold text-xl shadow-neon">
+          🏆 1º Lugar - Zero To One (Z2O) USP 2025
+        </div>
+        <h2 class="text-4xl font-bold mt-4 text-neon">Reconhecimento e Conquistas</h2>
+        <p class="text-gray-400 mt-4 text-lg max-w-3xl mx-auto">Selecionados e premiados em primeiro lugar no programa Zero To One da Universidade de São Paulo, validando nossa proposta de valor e potencial de mercado.</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Resumo do Negócio -->
+        <div class="bg-bg-secondary p-6 rounded-xl border-2 border-bg-tertiary hover:border-neon transition-all duration-300">
+          <h3 class="text-xl font-bold mb-4 text-neon">💡 Resumo do Negócio</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">A Boto oferece LLMs (Large Language Models) locais por meio de um modelo de assinatura, sem cobrança por tokens, atendendo tanto empresas privadas quanto o setor governamental.</p>
+        </div>
+
+        <!-- Modelo de Negócios -->
+        <div class="bg-bg-secondary p-6 rounded-xl border-2 border-bg-tertiary hover:border-neon transition-all duration-300">
+          <h3 class="text-xl font-bold mb-4 text-neon">💰 Modelo de Negócios</h3>
+          <ul class="text-gray-300 text-sm space-y-2">
+            <li><strong class="text-neon">Empresas B2B:</strong> R$ 250/mês por modelo</li>
+            <li><strong class="text-neon">Governo/Órgãos:</strong> R$ 5.000/mês por modelo</li>
+            <li><strong class="text-neon">Opcional:</strong> R$ 100 para rede distribuída</li>
+          </ul>
+        </div>
+
+        <!-- Diferenciais Competitivos -->
+        <div class="bg-bg-secondary p-6 rounded-xl border-2 border-bg-tertiary hover:border-neon transition-all duration-300">
+          <h3 class="text-xl font-bold mb-4 text-neon">🚀 Diferenciais</h3>
+          <ul class="text-gray-300 text-sm space-y-2">
+            <li>✓ Privacidade total (processamento local)</li>
+            <li>✓ Modelos especialistas e leves</li>
+            <li>✓ Assinatura fixa (sem variação)</li>
+            <li>✓ Asset-Light (usa sua infra)</li>
+          </ul>
+        </div>
+
+        <!-- Tração -->
+        <div class="bg-bg-secondary p-6 rounded-xl border-2 border-bg-tertiary hover:border-neon transition-all duration-300">
+          <h3 class="text-xl font-bold mb-4 text-neon">📈 Tração Atual</h3>
+          <ul class="text-gray-300 text-sm space-y-2">
+            <li><strong class="text-neon">4 pilotos</strong> confirmados</li>
+            <li><strong class="text-neon">2 contratos</strong> em negociação</li>
+            <li><strong class="text-neon">ARR:</strong> R$ 33k (6 meses)</li>
+          </ul>
+        </div>
+
+        <!-- Mercado -->
+        <div class="bg-bg-secondary p-6 rounded-xl border-2 border-bg-tertiary hover:border-neon transition-all duration-300">
+          <h3 class="text-xl font-bold mb-4 text-neon">🎯 Mercado</h3>
+          <p class="text-gray-300 text-sm mb-2"><strong>Empresas com TI:</strong></p>
+          <ul class="text-gray-300 text-sm space-y-1 mb-3">
+            <li>TAM: R$ 15,23 bi/ano</li>
+            <li>SOM: R$ 22 milhões</li>
+          </ul>
+          <p class="text-gray-300 text-sm"><strong>Governo:</strong></p>
+          <ul class="text-gray-300 text-sm space-y-1">
+            <li>TAM: R$ 8,03 bi</li>
+            <li>SOM: R$ 30,4 milhões</li>
+          </ul>
+        </div>
+
+        <!-- Meta -->
+        <div class="bg-bg-secondary p-6 rounded-xl border-2 border-bg-tertiary hover:border-neon transition-all duration-300">
+          <h3 class="text-xl font-bold mb-4 text-neon">🎪 Meta 36 Meses</h3>
+          <p class="text-5xl font-bold mb-2 text-neon">R$ 4,3M</p>
+          <p class="text-gray-300 text-sm">ARR com <strong class="text-neon">700 clientes</strong> ativos</p>
+          <p class="text-gray-400 text-xs mt-3">Runway: 24 meses</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TIME -->
-  <section class="py-20 px-6 border-t-4 border-[#256D85]">
-    <h2 class="text-3xl font-bold text-[#256D85] text-center mb-8">Nosso Time</h2>
+  <section class="py-20 px-6 border-t-4 border-neon">
+    <h2 class="text-3xl font-bold text-center mb-8 text-neon">Nosso Time</h2>
     <p class="max-w-3xl mx-auto text-center text-gray-400 mb-12">Time técnico especializado em IA aplicada ao setor público e privado, com anos de experiência em consultorias e automações de grande escala.</p>
 
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
 
-      <div class="bg-[#14181D] p-6 rounded-xl border-t-4 border-[#256D85] shadow-md">
-        <h3 class="text-xl font-semibold text-yellow-500">Eduardo Pacheco</h3>
+      <div class="bg-bg-secondary p-6 rounded-xl border-t-4 border-neon shadow-md">
+        <h3 class="text-xl font-semibold text-neon">Eduardo Pacheco</h3>
         <p class="text-gray-400 mt-2 text-sm">11y ML & IA — Lead Data Scientist e Advogado<br>Mestrando em IA - USP<br>Especialização IA e ML - PUC<br>Direito - USP • Ciência de dados - Univesp
         <br>Certificações Microsoft, Google, Oracle, Weaviate<br>Prysmo · Kognit · Atlas.IA · Jive Investments · Avante · IPT · Geologística</p>
       </div>
 
-      <div class="bg-[#14181D] p-6 rounded-xl border-t-4 border-[#256D85] shadow-md">
-        <h3 class="text-xl font-semibold text-yellow-500">Jonnathan Ramos</h3>
+      <div class="bg-bg-secondary p-6 rounded-xl border-t-4 border-neon shadow-md">
+        <h3 class="text-xl font-semibold text-neon">Jonnathan Ramos</h3>
         <p class="text-gray-400 mt-2 text-sm">4y Dados, ML & IA — Engenheiro de ML<br>Eng. Elétrica - UFTM<br>Certificações Oracle e Hugging Face<br>Prysmo · Kognit · Bunge BP Bioenergia · Atlas.IA</p>
       </div>
 
-      <div class="bg-[#14181D] p-6 rounded-xl border-t-4 border-[#256D85] shadow-md">
-        <h3 class="text-xl font-semibold text-yellow-500">Vinicius Peruzzi</h3>
+      <div class="bg-bg-secondary p-6 rounded-xl border-t-4 border-neon shadow-md">
+        <h3 class="text-xl font-semibold text-neon">Vinicius Peruzzi</h3>
         <p class="text-gray-400 mt-2 text-sm">3.5y IA e Pesquisa — Engenheiro de IA<br>Mestrando em IA - UFPel<br>Cientista da Computação - UFPel<br>Certificações Oracle<br>Kognit · Bolsista CNPq</p>
       </div>
 
-      <div class="bg-[#14181D] p-6 rounded-xl border-t-4 border-[#256D85] shadow-md">
-        <h3 class="text-xl font-semibold text-yellow-500">Afonso Theil</h3>
+      <div class="bg-bg-secondary p-6 rounded-xl border-t-4 border-neon shadow-md">
+        <h3 class="text-xl font-semibold text-neon">Afonso Theil</h3>
         <p class="text-gray-400 mt-2 text-sm">2.5y ML & IA — Cientista de Dados<br>Ciência da Computação - UFPel<br>Certificações Oracle<br>Prysmo · Kognit</p>
       </div>
 
-      <div class="bg-[#14181D] p-6 rounded-xl border-t-4 border-[#256D85] shadow-md">
-        <h3 class="text-xl font-semibold text-yellow-500">Gustavo Carlstron</h3>
+      <div class="bg-bg-secondary p-6 rounded-xl border-t-4 border-neon shadow-md">
+        <h3 class="text-xl font-semibold text-neon">Gustavo Carlstron</h3>
         <p class="text-gray-400 mt-2 text-sm">5y Fullstack — Programador<br>Eng. da Computação - Univesp<br>Tecnólogo em Jogos Digitais - FATEC<br>Processamento de Dados - FITO<br>PHIBRA · Vertem · Strati · Algar Tech · Atos</p>
       </div>
 
     </div>
   </section>
 
-    <!-- HERO PARALLAX -->
-  <header class="h-screen bg-fixed bg-cover bg-center flex flex-col justify-center items-center text-center px-4" style="background-image: linear-gradient(rgba(37,109,133,0.85), rgba(173,175,16,0.47)), url('./image.png');">
-    <h1 class="text-4xl md:text-6xl font-bold tracking-wide">Orbit IA</h1>
+  <!-- HERO PARALLAX -->
+  <header class="h-screen bg-fixed bg-cover bg-center flex flex-col justify-center items-center text-center px-4 hero-parallax-secondary">
+    <h1 class="text-4xl md:text-6xl font-bold tracking-wide text-neon neon-text-shadow">Boto IA</h1>
     <p class="mt-4 text-lg md:text-xl max-w-2xl">A independência tecnológica começa com IA soberana que te entende e protege sua privacidade.</p>
   </header>
 
   <!-- O QUE FAZEMOS -->
-  <section class="py-20 px-6 border-t-4 border-[#256D85]">
-    <h2 class="text-3xl font-bold text-[#256D85] text-center mb-8">O que fazemos</h2>
+  <section class="py-20 px-6 border-t-4 border-neon orbital-bg">
+    <h2 class="text-3xl font-bold text-center mb-8 text-neon">O que fazemos</h2>
 
     <div class="grid gap-10 max-w-5xl mx-auto md:grid-cols-2">
 
       <!-- Problemas -->
-      <div class="bg-[#14181D] p-6 rounded-xl shadow-md border-t-4 border-yellow-600">
-        <h3 class="text-xl font-semibold text-yellow-500 mb-4">Desafios Atuais</h3>
+      <div class="bg-bg-secondary p-6 rounded-xl shadow-md border-t-4 border-red-500">
+        <h3 class="text-xl font-semibold text-red-500 mb-4">⚠️ Desafios Atuais</h3>
         <ul class="text-gray-400 space-y-3 text-sm">
-          <li>• Contexto geopolítico pode limitar acesso à tecnologia estratégica.</li>
-          <li>• Custos dependentes de tokens encarecem soluções com LLM.</li>
-          <li>• Envio de dados para a internet cria riscos de privacidade e compliance (LGPD).</li>
+          <li>• <strong class="text-white">Contexto geopolítico</strong> pode limitar acesso à tecnologia estratégica.</li>
+          <li>• <strong class="text-white">Custos dependentes de tokens</strong> encarecem soluções com LLM.</li>
+          <li>• <strong class="text-white">Envio de dados para a internet</strong> cria riscos de privacidade e compliance (LGPD).</li>
+          <li>• <strong class="text-white">Dependência tecnológica</strong> (lock-in) de bigtechs estrangeiras.</li>
         </ul>
       </div>
 
       <!-- Soluções -->
-      <div class="bg-[#14181D] p-6 rounded-xl shadow-md border-t-4 border-yellow-600">
-        <h3 class="text-xl font-semibold text-yellow-500 mb-4">Nossa Proposta</h3>
+      <div class="bg-bg-secondary p-6 rounded-xl shadow-md border-t-4 border-neon">
+        <h3 class="text-xl font-semibold mb-4 text-neon">✓ Nossa Solução Boto</h3>
         <ul class="text-gray-400 space-y-3 text-sm">
-          <li>• Custos previsíveis: assinatura por máquina.</li>
-          <li>• Modelos locais: rodamos na sua infraestrutura.</li>
-          <li>• Especialização: modelos pequenos, eficientes e em português.</li>
-          <li>• Troca de OPEX por CAPEX conforme o hardware evolui.</li>
-          <li>• Aumente escala sem expor seus dados.</li>
+          <li>• <strong class="text-white">Custos previsíveis:</strong> assinatura por máquina, sem variação.</li>
+          <li>• <strong class="text-white">Modelos locais:</strong> rodamos na sua infraestrutura.</li>
+          <li>• <strong class="text-white">Especialização:</strong> modelos pequenos, eficientes e em português.</li>
+          <li>• <strong class="text-white">Troca de OPEX por CAPEX</strong> conforme o hardware evolui.</li>
+          <li>• <strong class="text-white">Aumente escala</strong> sem expor seus dados.</li>
+          <li>• <strong class="text-white">Privacidade total:</strong> processamento local vs. exposição na nuvem.</li>
         </ul>
       </div>
 
     </div>
 
-    <p class="text-center text-lg mt-12 max-w-3xl mx-auto text-gray-300 italic">“O Brasil conectado ao próprio futuro: tecnologia nacional, proteção dos dados e total transparência de custos.”</p>
+    <p class="text-center text-lg mt-12 max-w-3xl mx-auto text-gray-300 italic">"O Brasil conectado ao próprio futuro: tecnologia nacional, proteção dos dados e total transparência de custos."</p>
   </section>
 
-    <!-- MODELOS ESPECIALISTAS -->
-  <section class="py-20 border-t-4 border-[#256D85] text-center px-6">
-    <h2 class="text-3xl text-[#256D85] font-semibold mb-8">Modelos Especialistas</h2>
-    <p class="max-w-3xl mx-auto text-[#A1A1A1] text-lg leading-relaxed">
+  <!-- MODELOS ESPECIALISTAS -->
+  <section class="py-20 border-t-4 border-neon text-center px-6">
+    <h2 class="text-3xl font-semibold mb-8 text-neon">Modelos Especialistas</h2>
+    <p class="max-w-3xl mx-auto text-gray-400 text-lg leading-relaxed">
       Modelos especializados superam modelos maiores em tarefas específicas: são mais rápidos, mais leves, mais
       baratos, consomem menos energia e entregam resultados superiores em domínios bem definidos. Nosso foco é
       proporcionar modelos compactos, inteligentes e com total soberania nacional — garantindo privacidade absoluta.
     </p>
   </section>
 
-    <!-- TECNOLOGIA LOCAL-->
-  <section class="py-20 px-6 border-t-4 border-[#256D85]">
-    <h2 class="text-3xl font-bold text-[#256D85] text-center mb-8">Tecnologia Local</h2>
-    <p class="max-w-3xl mx-auto text-center text-gray-400 mb-12">Você apresenta o problema, a Orbit a solução. Os modelos podem ser especializados para resolver o seu problema. Além disso, podem ser executados na sua própria infra, ou seja, sem conexões externas, sem dados expostos fora da infra local, sem vazamentos, sem dados usados para treinamento. Os dados são seus, a Orbit respeita, encoraja e protege isso. Com os modelos sendo executados localmente, a taxa de assinatura faz com que a sua demanda não impacte no valor final.</p>
+  <!-- TECNOLOGIA LOCAL-->
+  <section class="py-20 px-6 border-t-4 border-neon">
+    <h2 class="text-3xl font-bold text-center mb-8 text-neon">Tecnologia Local</h2>
+    <p class="max-w-3xl mx-auto text-center text-gray-400 mb-12">Você apresenta o problema, a Boto a solução. Os modelos podem ser especializados para resolver o seu problema. Além disso, podem ser executados na sua própria infra, ou seja, sem conexões externas, sem dados expostos fora da infra local, sem vazamentos, sem dados usados para treinamento. Os dados são seus, a Boto respeita, encoraja e protege isso. Com os modelos sendo executados localmente, a taxa de assinatura faz com que a sua demanda não impacte no valor final.</p>
   </section>
 
-   <!-- SERVIÇO DE INFERÊNCIA-->
-  <section class="py-20 px-6 border-t-4 border-[#256D85]">
-    <h2 class="text-3xl font-bold text-[#256D85] text-center mb-8">Serviço de inferência</h2>
+  <!-- SERVIÇO DE INFERÊNCIA-->
+  <section class="py-20 px-6 border-t-4 border-neon">
+    <h2 class="text-3xl font-bold text-center mb-8 text-neon">Serviço de inferência</h2>
     <p class="max-w-3xl mx-auto text-center text-gray-400 mb-12">Não deseja possuir a infraestrutura para executar modelos localmente? Podemos também oferecer uma enxame de modelos especialistas, também no modelo de assinatura com limites, e a inferência será feita em nossos servidores, em modelos especializados no idioma e com arquitetura nacional. Seus dados ainda vão estar protegidos, com planos que possibilitem que não sejam usados para treinamento, tudo de forma clara e transparente, com custos fixos mensais.</p>
   </section>
 
   <!-- CONTATO -->
-  <footer class="py-12 bg-[#256D85] text-center text-white">
+  <footer class="py-12 text-center text-white bg-bg-secondary border-t-4 border-neon">
     <p class="text-lg">Entre em contato</p>
-    <p class="mt-2 text-yellow-300">eduardo.caruso.pacheco@usp.br</p>
-    <p class="mt-4 text-sm">© 2025 Orbit IA — Tecnologia com soberania.</p>
+    <p class="mt-2 text-neon">contato@boto.ia.br</p>
+    <p class="mt-4 text-sm">© 2025 Boto IA — Tecnologia com soberania.</p>
   </footer>
 
 </body>
